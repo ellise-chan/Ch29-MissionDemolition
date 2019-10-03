@@ -33,10 +33,6 @@ public class MissionDemolition : MonoBehaviour {
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot"; // FollowCam mode
 
-
-
-
-
     // Use this for initialization
     void Start ()
     {

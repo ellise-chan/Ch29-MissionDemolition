@@ -30,7 +30,7 @@ public class Slingshot : MonoBehaviour {
     private void Awake()
     {
         S = this;
-        Transform launchPointTrans = transform.FindChild("LaunchPoint");
+        Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
         launchPos = launchPointTrans.position;
@@ -57,7 +57,7 @@ public class Slingshot : MonoBehaviour {
         // Start it at the launchPoint
         projectile.transform.position = launchPos;
         // Set it to isKinematic for now
-        projectileRigidbody = projectile.GetComponent<Rigidbody>(); // a
+        projectileRigidbody = projectile.GetComponent<Rigidbody>(); 
         projectileRigidbody.isKinematic = true;
     }
 
