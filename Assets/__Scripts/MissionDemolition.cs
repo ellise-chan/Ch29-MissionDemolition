@@ -100,17 +100,41 @@ public class MissionDemolition : MonoBehaviour {
 
     void NextLevel()
     {
-
+        level++;
+        if (level == levelMax)
+        {
+            level = 0;
+        }
+        StartLevel();
     }
 
     public void SwitchView(string eView = "")
     {
-
+        if (eView == "")
+        {
+            eView = uitButton.text;
+        }
+        showing = eView;
+        switch (showing)
+        {
+            case "Show Slingshot":
+                FollowCam.POI = null;
+                uitButton.text = "Show Castle";
+                break;
+            case "Show Castle":
+                FollowCam.POI = S.castle;
+                uitButton.text = "Show Both";
+                break;
+            case "Show Both":
+                FollowCam.POI = GameObject.Find("ViewBoth");
+                uitButton.text = "Show Slingshot";
+                break;
+        }
     }
 
     // Static method that allows code anywhere to increment shotsTaken
     public static void ShotFired()
     {
-
+        S.shotsTaken++;
     }
 }
